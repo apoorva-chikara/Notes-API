@@ -2,6 +2,7 @@
  *  node modules import
  */
 const express = require('express');
+
 const router = express.Router();
 
 /**
@@ -9,8 +10,6 @@ const router = express.Router();
  */
 
 const { noteSave } = require('../controllers/notesSaveandUpdateController');
-
-
 
 /* GET home page. */
 router.post('/save', noteSave.save);

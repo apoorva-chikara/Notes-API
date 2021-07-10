@@ -3,15 +3,14 @@
  */
 
 const express = require('express');
-const router = express.Router();
 
+const router = express.Router();
 
 /**
  * controller import
  */
 
- const { fetchNotes } = require('../controllers/notesFetchController');
-
+const { fetchNotes } = require('../controllers/notesFetchController');
 
 /* GET notes listing. */
 router.get('/', fetchNotes);

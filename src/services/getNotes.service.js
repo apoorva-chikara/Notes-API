@@ -1,8 +1,10 @@
-const { isValidObjectId, Mongoose } = require('mongoose');
+/* eslint-disable no-console */
+/* eslint-disable consistent-return */
+
 /**
  * Importing Model
  */
-const Notes = require('../models/notes');
+// const Notes = require('../models/notes');
 
 /**
  * Importing queries
@@ -11,18 +13,14 @@ const Notes = require('../models/notes');
 const queries = require('../db/queries');
 
 class GetNotes {
-
-    constructor() {}
-
-    async getAllNotes () {
-      try {
-        const results = await queries.find();
-        return results;
-      } catch (error) {
-        console.log(error);
-      }
-
+  static async getAllNotes() {
+    try {
+      const results = await queries.find();
+      return results;
+    } catch (error) {
+      console.log(error);
     }
+  }
 }
 
 module.exports = new GetNotes();
