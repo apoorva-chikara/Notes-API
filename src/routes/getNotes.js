@@ -1,18 +1,16 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/extensions */
 /**
  *  node modules import
  */
-
-const express = require('express');
-
-const router = express.Router();
+import express from 'express';
 
 /**
  * controller import
  */
+import fetchNotes from '../controllers/notesFetchController.js';
 
-const { fetchNotes } = require('../controllers/notesFetchController');
+export const getNotesRouter = express.Router();
 
 /* GET notes listing. */
-router.get('/', fetchNotes);
-
-module.exports = router;
+getNotesRouter.get('/', fetchNotes);

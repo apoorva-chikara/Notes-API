@@ -1,40 +1,38 @@
+/* eslint-disable import/extensions */
 /* eslint-disable consistent-return */
 /* eslint-disable no-console */
 /**
- * Node npm packages
+ * importing logs
  */
-// const { isValidObjectId, Mongoose } = require('mongoose');
-
-// const Notes = require('../models/notes');
-
+// import config from '../config/logConfig.js';
 /**
  * Importing queries
  * This is generaly a data-layer that communicates with the database
  */
-const queries = require('../db/queries');
+import queries from '../db/queries.js';
+// const queries = require('../db/queries');
 
-class NotesSave {
-  static async saveUserNotes(data) {
+const NotesSave = {
+  saveUserNotes: async (data) => {
     try {
       const noteDTO = data;
       const res = await queries.save(noteDTO);
       return `${res}`;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
-  }
-
-  static async updateUserNotes(note) {
+  },
+  updateUserNotes: async (note) => {
     try {
-      const { _id, title, description } = note;
+      const { _id, description } = note;
       const filter = { _id };
-      const updateData = { title, description };
+      const updateData = { description };
       const results = await queries.update(filter, updateData);
       return results;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
-  }
-}
+  },
+};
 
-module.exports = new NotesSave();
+export default NotesSave;

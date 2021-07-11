@@ -1,19 +1,17 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/extensions */
 /**
  *  node modules import
  */
-const express = require('express');
-
-const router = express.Router();
+import express from 'express';
 
 /**
  * controller import
  */
+import noteSave from '../controllers/notesSaveandUpdateController.js';
 
-const { noteSave } = require('../controllers/notesSaveandUpdateController');
+export const notesRouter = express.Router();
 
-/* GET home page. */
-router.post('/save', noteSave.save);
-
-router.post('/update', noteSave.update);
-
-module.exports = router;
+/* Post save and update routes */
+notesRouter.post('/save', noteSave.save);
+notesRouter.post('/update', noteSave.update);

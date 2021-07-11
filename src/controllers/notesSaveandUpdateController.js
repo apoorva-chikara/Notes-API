@@ -1,17 +1,20 @@
-const NotesService = require('../services/notesSave.service');
+/* eslint-disable import/extensions */
+import NotesService from '../services/notesSave.service.js';
 
-module.exports.noteSave = {
+const noteSave = {
   save: async (req, res) => {
-    const notesDTO = req.body;
+    const { data: notesDTO } = req.body;
+    console.log(NotesService);
     const notes = await NotesService.saveUserNotes(notesDTO);
-    res.send(`Saved documents ${notes} `);
+    res.send(notes);
   },
 
   update: async (req, res) => {
-    const noteDTO = req.body;
-    // const notes = await NotesService.saveUserNotes(title, description);
-    // console.log('hello worl', notes);
+    const { data: noteDTO } = req.body;
+    console.log(NotesService);
     const update = await NotesService.updateUserNotes(noteDTO);
-    res.send(`Update from ${update} `);
+    res.send(update);
   },
 };
+
+export default noteSave;

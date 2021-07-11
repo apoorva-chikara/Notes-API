@@ -1,15 +1,14 @@
-const bunyan = require('bunyan');
-// Load package.json
-const pjs = require('../../package.json');
+// import { config } from 'dotenv';
+import bunyan from 'bunyan';
 
 // Get some meta info from the package.json
-const { name, version } = pjs;
+const { name, version } = { name: 'my:app', version: '1.0.0' };
 
 // Set up a logger
 const getLogger = (message, level) => bunyan.createLogger({ name: `${message}`, level });
 
 // Configuration options for different environments
-module.exports = {
+const config = {
   development: {
     name,
     version,
@@ -21,3 +20,5 @@ module.exports = {
     log: () => getLogger(name, 'info'),
   },
 };
+
+export default config;

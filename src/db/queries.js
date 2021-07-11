@@ -1,6 +1,8 @@
-const Notes = require('../models/notes');
+/* eslint-disable import/extensions */
+import Notes from '../models/notes.js';
+// const Notes = require('../models/notes');
 
-module.exports = {
+const queries = {
   find: async () => {
     try {
       const results = await Notes.find({});
@@ -30,3 +32,5 @@ module.exports = {
     }
   },
 };
+
+export default queries;

@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Create DB connection
-mongoose.connect(process.env.DB_HOST,
+mongoose.connect('mongodb+srv://apoorva:apoorva@cluster0.x0jq8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -20,8 +20,7 @@ mongoose.connect(process.env.DB_HOST,
  */
 
 const NoteSchema = mongoose.Schema({
-  tite: String,
-  description: { type: String, trim: true },
+  description: { type: String, trim: true, required: true },
 },
 {
   timestamps:
@@ -30,4 +29,4 @@ const NoteSchema = mongoose.Schema({
 
 const Notes = mongoose.model('Notes', NoteSchema);
 
-module.exports = Notes;
+export default Notes;

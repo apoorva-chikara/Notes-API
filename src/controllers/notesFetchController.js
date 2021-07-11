@@ -1,6 +1,15 @@
-const NotesFetchService = require('../services/getNotes.service');
+/* eslint-disable import/extensions */
+import NotesFetchService from '../services/getNotes.service.js';
 
-module.exports.fetchNotes = async (req, res) => {
-  const notes = await NotesFetchService.getAllNotes();
-  res.send(`${notes}`);
+const fetchNotes = async (req, res) => {
+  try {
+    console.log(NotesFetchService);
+    const notes = await NotesFetchService.getAllNotes();
+    res.send(notes);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log(e);
+  }
 };
+
+export default fetchNotes;

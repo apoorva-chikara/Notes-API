@@ -1,26 +1,27 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-console */
 /* eslint-disable consistent-return */
 
 /**
- * Importing Model
+ * importing logs
  */
-// const Notes = require('../models/notes');
+// import config from '../config/logConfig.js';
 
 /**
  * Importing queries
  * This is generaly a data-layer that communicates with the database
  */
-const queries = require('../db/queries');
+import queries from '../db/queries.js';
 
-class GetNotes {
-  static async getAllNotes() {
+const NotesFetchService = {
+  getAllNotes: async () => {
     try {
       const results = await queries.find();
       return results;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
-  }
-}
+  },
+};
 
-module.exports = new GetNotes();
+export default NotesFetchService;
