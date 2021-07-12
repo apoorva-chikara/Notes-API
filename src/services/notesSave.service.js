@@ -16,7 +16,7 @@ class NotesSave {
     try {
       const noteDTO = data;
       const res = await queries.save(noteDTO);
-      return `${res}`;
+      return res;
     } catch (error) {
       console.error(error);
     }

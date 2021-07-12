@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 
 // Create DB connection
-mongoose.connect('mongodb+srv://apoorva:apoorva@cluster0.x0jq8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(process.env.DB_HOST,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
