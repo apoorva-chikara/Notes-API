@@ -2,10 +2,12 @@
 import Notes from '../models/notes.js';
 // const Notes = require('../models/notes');
 
+const projection = { description: 1 };
+
 const queries = {
   find: async () => {
     try {
-      const results = await Notes.find({});
+      const results = await Notes.find({}, projection);
       return results;
     } catch (error) {
       return new Error('Unable to find the documents');

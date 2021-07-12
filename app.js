@@ -7,7 +7,7 @@ import cors from 'cors';
 /**
  * Adding logger
  */
-// import config from './src/config/logConfig.js';
+import config from './src/config/logConfig.js';
 
 /**
  * Routing imports
@@ -15,9 +15,9 @@ import cors from 'cors';
 import { notesRouter } from './src/routes/notes.js';
 import { getNotesRouter } from './src/routes/getNotes.js';
 
-// const configInstance = config[process.env.NODE_ENV || 'development'];
+const configInstance = config[process.env.NODE_ENV || 'development'];
 
-// const log = configInstance.log();
+const log = configInstance.log();
 
 const app = express();
 

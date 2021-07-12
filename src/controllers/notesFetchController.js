@@ -3,7 +3,6 @@ import NotesFetchService from '../services/getNotes.service.js';
 
 const fetchNotes = async (req, res) => {
   try {
-    console.log(NotesFetchService);
     const notes = await NotesFetchService.getAllNotes();
     res.send(notes);
   } catch (e) {

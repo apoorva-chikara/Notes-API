@@ -13,15 +13,15 @@
  */
 import queries from '../db/queries.js';
 
-const NotesFetchService = {
-  getAllNotes: async () => {
+class NotesFetchService {
+  static async getAllNotes() {
     try {
       const results = await queries.find();
       return results;
     } catch (error) {
       console.error(error);
     }
-  },
-};
+  }
+}
 
 export default NotesFetchService;

@@ -10,10 +10,9 @@
  * This is generaly a data-layer that communicates with the database
  */
 import queries from '../db/queries.js';
-// const queries = require('../db/queries');
 
-const NotesSave = {
-  saveUserNotes: async (data) => {
+class NotesSave {
+  static async saveUserNotes(data) {
     try {
       const noteDTO = data;
       const res = await queries.save(noteDTO);
@@ -21,8 +20,9 @@ const NotesSave = {
     } catch (error) {
       console.error(error);
     }
-  },
-  updateUserNotes: async (note) => {
+  }
+
+  static async updateUserNotes(note) {
     try {
       const { _id, description } = note;
       const filter = { _id };
@@ -32,7 +32,7 @@ const NotesSave = {
     } catch (error) {
       console.error(error);
     }
-  },
-};
+  }
+}
 
 export default NotesSave;
